@@ -1,11 +1,20 @@
-function getComputerChoice(){
-
-}
-
 //Call function getComputerChoice
+function getComputerChoice(choice){
+    //write a variable with 3 options, print 1 option
+    options = ['rock', 'paper', 'scissors'];
+    conputerSelection = options[Math.floor(Math.random() * options.length)];
+    console.log("Computer choose " + conputerSelection);
+    }
+  
+    getComputerChoice();
+    
     //randomly return computerSelection: either Rock Paper or Scissors
     //console.log(computerSelection value)
 
+
+/*
+
+    
 //Get function getplayerChoice
     //user prompt for Rock Paper or Scissors (case insensitive)
     //return playerSelection
@@ -37,3 +46,5 @@ console.log(playRound(playerSelection, computerSelection));
     }
     //return a winner/loser
     //console.log(winner/loser)
+
+    */
