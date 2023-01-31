@@ -1,7 +1,7 @@
 //Call function getComputerChoice
 function getComputerChoice(choice){
     //write a variable with 3 options, print 1 option
-    options = ['rock', 'paper', 'scissors'];
+    let options = ['rock', 'paper', 'scissors'];
 
     //randomly return computerSelection: either Rock Paper or Scissors
     computerSelection = options[Math.floor(Math.random() * options.length)];
@@ -12,23 +12,22 @@ getComputerChoice();
     
 //Get function getplayerChoice
 function getplayerChoice(choice){
-    //user prompt for Rock Paper or Scissors
-    let input = prompt("Enter Rock, Paper or Scissors");
+
     //convet input to lower case
     playerSelection = input.toLowerCase();
 
     
-    let validResponse = 0;
-    while (validResponse == 0){
+    let validResponse = 'no';
+    while (validResponse == 'no'){
         
         if (playerSelection == 'rock'){ //return playerSelection
-            validResponse = 1;
+            validResponse = 'yes';
         } else if (playerSelection == 'paper'){
-            validResponse = 1;
+            validResponse = 'yes';
         } else if (playerSelection == 'scissors'){
-            validResponse = 1;
+            validResponse = 'yes';
         } else { //while input isnt rock/paper/scissors, prompt again
-            validResponse = 0;
+            validResponse = 'no';
             input = prompt("Enter ONLY Rock, Paper or Scissors");
             playerSelection = input.toLowerCase();
         }
@@ -39,24 +38,44 @@ function getplayerChoice(choice){
 
     }
 }
+    //user prompt for Rock Paper or Scissors
+    let input = prompt("Enter Rock, Paper or Scissors");
+getplayerChoice(input);
 
-getplayerChoice();
-
-/*
 //function to play 1 round
-function playRound(playerSelection, conputerSelection){
-    //take 2 parameters playerSelection and computerSelection
-    //RETURN a string that declares winner
-        //"You Lose! Rock beats Scissors"
-        //"You Lose! Paper beats Rock"
-        //"You Lose! Scissors beats Paper"
-        //"You Win! Rock beats Scissors"
-        //"You Win! Paper beats Rock"
-        //"You Win! Scissors beats Paper"
-        //console.log(return string7)
+function playRound(computerSelection, playerSelection){
+    let computerScore = 0;
+    let playerScore = 0;
 
+    if (computerSelection == 'rock' && playerSelection == 'scissors'){
+        console.log("You Lose! Rock beats Scissors");
+        computerScore++;
+    } else if (computerSelection == 'paper' && playerSelection == 'rock'){
+        console.log("You Lose! Paper beats Rock");
+        computerScore++;
+    } else if (computerSelection == 'scissors' && playerSelection == 'paper'){
+        console.log("You Lose! Scissors beats Paper");
+        computerScore++;
+    } else if (computerSelection == 'scissors' && playerSelection == 'rock'){
+        console.log("You Win! Rock beats Scissors");
+        playerScore++;
+    } else if (computerSelection == 'rock' && playerSelection == 'paper'){
+        console.log("You Win! Paper beats Rock");
+        playerScore++;
+    } else if (computerSelection == 'paper' && playerSelection == 'scissors'){
+        console.log("You Win! Scissors beats Paper");
+        playerScore++;
+    }
 }
 
+    //take 2 parameters playerSelection and computerSelection
+    //RETURN a string that declares winner
+
+
+
+playRound(computerSelection, playerSelection);
+
+/*
 const playerSelection = 'rock';
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
