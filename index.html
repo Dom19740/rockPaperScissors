@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+
     //Call function getComputerChoice
     function getComputerChoice(choice){
         //write a variable with 3 options, print 1 option
@@ -24,66 +25,70 @@
     
         //convet input to lower case
         playerSelection = input.toLowerCase();
-    
-        
-        let validResponse = 'no';
-        while (validResponse == 'no'){
+            
+        //get valid response from input
+        let validResponse = 0;
+        while (validResponse == 0){
             
             if (playerSelection == 'rock'){ //return playerSelection
-                validResponse = 'yes';
+                validResponse = 1;
             } else if (playerSelection == 'paper'){
-                validResponse = 'yes';
+                validResponse = 1;
             } else if (playerSelection == 'scissors'){
-                validResponse = 'yes';
+                validResponse = 1;
             } else { //while input isnt rock/paper/scissors, prompt again
-                validResponse = 'no';
+                validResponse = 0;
                 input = prompt("Enter ONLY Rock, Paper or Scissors");
                 playerSelection = input.toLowerCase();
             }
      
-        console.log("You choose " + playerSelection);
+        console.log("You choose " + playerSelection); //DELETE
       
      
     
         }
     }
-        //user prompt for Rock Paper or Scissors
-        let input = prompt("Enter Rock, Paper or Scissors");
+    
+    //user prompt for Rock Paper or Scissors
+    let input = prompt("Enter Rock, Paper or Scissors");
     getplayerChoice(input);
     
     //function to play 1 round
     function playRound(computerSelection, playerSelection){
         let computerScore = 0;
         let playerScore = 0;
-    
-        if (computerSelection == 'rock' && playerSelection == 'scissors'){
-            console.log("You Lose! Rock beats Scissors");
-            computerScore++;
-        } else if (computerSelection == 'paper' && playerSelection == 'rock'){
-            console.log("You Lose! Paper beats Rock");
-            computerScore++;
-        } else if (computerSelection == 'scissors' && playerSelection == 'paper'){
-            console.log("You Lose! Scissors beats Paper");
-            computerScore++;
-        } else if (computerSelection == 'scissors' && playerSelection == 'rock'){
-            console.log("You Win! Rock beats Scissors");
-            playerScore++;
-        } else if (computerSelection == 'rock' && playerSelection == 'paper'){
-            console.log("You Win! Paper beats Rock");
-            playerScore++;
-        } else if (computerSelection == 'paper' && playerSelection == 'scissors'){
-            console.log("You Win! Scissors beats Paper");
-            playerScore++;
-        }
-    }
-    
+        
         //take 2 parameters playerSelection and computerSelection
-        //RETURN a string that declares winner
-    
+        if ((computerSelection == 'rock' && playerSelection == 'scissors') || 
+            (computerSelection == 'paper' && playerSelection == 'rock') ||
+            (computerSelection == 'scissors' && playerSelection == 'paper')){
+            //RETURN a string that declares winner
+            return result = ('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+            
+            //add +1 to computer score
+            computerScore++;
+        } else if ((computerSelection == 'scissors' && playerSelection == 'rock') ||
+                    (computerSelection == 'rock' && playerSelection == 'paper') ||
+                    (computerSelection == 'paper' && playerSelection == 'scissors')){
+                    //RETURN a string that declares winner
+                    return result = ('You Win! ' + playerSelection + ' beats ' + computerSelection);
+                    
+                    //add +1 to player scorre
+                    playerScore++;
+         } else {
+            return result = ('It\'s a draw!');
+         }
+
+    }
+  
+        
+
     
     
     playRound(computerSelection, playerSelection);
-    
+
+    console.log(result);
+
     /*
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
