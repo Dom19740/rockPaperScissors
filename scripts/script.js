@@ -6,6 +6,8 @@ function getComputerChoice(choice){
     console.log("Computer choose " + conputerSelection);
     }
   
+
+    
     getComputerChoice();
     
     //randomly return computerSelection: either Rock Paper or Scissors
