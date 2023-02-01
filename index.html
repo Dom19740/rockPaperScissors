@@ -8,10 +8,8 @@
 <body>
     <script>
 
+    function getComputerChoice(){    //function to getComputerChoice
 
-
-    //Call function getComputerChoice
-    function getComputerChoice(){
         //write a variable with 3 options, print 1 option
         let options = ['rock', 'paper', 'scissors'];
     
@@ -21,14 +19,10 @@
         return computerSelection;
     }
       
-    //getComputerChoice();
         
-
-
-    //Get function getplayerChoice
-    function getplayerChoice(){
+    function getplayerChoice(){     //function to getplayerChoice
     
-        //convet input to lower case
+        //convet prompt input to lower case
         playerSelection = input.toLowerCase();
             
         //get valid response from input
@@ -49,13 +43,8 @@
         }
     }
     
-    //user prompt for Rock Paper or Scissors
-    //getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
-    
 
-
-    //function to play 1 round
-    function playRound(){
+    function playRound(){       //function to play 1 round
         
         //take 2 parameters playerSelection and computerSelection and compare
         if ((computerSelection == 'rock' && playerSelection == 'scissors') || 
@@ -63,24 +52,22 @@
             (computerSelection == 'scissors' && playerSelection == 'paper')){
 
             //RETURN a string that declares winner
-            //console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
             return 'computerWin';
             
         } else if ((computerSelection == 'scissors' && playerSelection == 'rock') ||
-                    (computerSelection == 'rock' && playerSelection == 'paper') ||
-                    (computerSelection == 'paper' && playerSelection == 'scissors')){
-                    //console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
-                    return 'playerWin';
+                (computerSelection == 'rock' && playerSelection == 'paper') ||
+                (computerSelection == 'paper' && playerSelection == 'scissors')){
+
+                //RETURN a string that declares winner
+                return 'playerWin';
 
          } else {
-            //console.log('It\'s a draw!');
             return 'draw';
-         }
-        
-        
+         }   
     }
-     
-    function game(){
+    
+
+    function game(){ //play 5 rounds and keep score 
         
         let computerScore = 0;
         let playerScore = 0;
@@ -88,11 +75,12 @@
 
         for (let i = 0; i < 5; i++){
             
-            getComputerChoice();
-            getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
-            
-            playRound(computerSelection, playerSelection);
+            console.log("\n" + "Game No." + (i + 1));
 
+            getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));   //call getPlayerChoice function
+            getComputerChoice();                                                //call getComputerChoice function
+            playRound(computerSelection, playerSelection);                      //call playRound function
+            
             if (playRound() == 'computerWin'){
                 console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
                 computerScore++;
@@ -102,35 +90,25 @@
                 playerScore++;
                 
             } else {
-                console.log('It\'s a draw!');
+                console.log("It's a draw!");
                 drawScore++;
                 
             }
-            console.log(computerScore);
-            console.log(playerScore);
-            console.log(drawScore);
-            console.log(i);
             }
+            
+        //print out the winner
+        if (computerScore > playerScore){
+            console.log("You LOST " + computerScore + " - " + playerScore);
+        } else if (playerScore > computerScore){
+            console.log("You WON " + playerScore + " - " + computerScore);
+        } else {
+            console.log("It was a DRAW, what a waste of everyone's time"); //return a winner/loser
         }
+    }        
 
     game();
-    
-
-    /*
-    const playerSelection = 'rock';
-    const computerSelection = getComputerChoice();
-    console.log(playRound(playerSelection, computerSelection));
-    
-    //Write function called game to call playRound
-        //play 5 rounds and keep score 
-        for (let i = 0; i < 5; i++){
-    
-    
-        }
-        //return a winner/loser
-        //console.log(winner/loser)
-    
-        */
+ 
     </script>
-    </body>
+    
+</body>
 </html>
