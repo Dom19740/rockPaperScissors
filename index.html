@@ -18,6 +18,7 @@
         //randomly return computerSelection: either Rock Paper or Scissors
         computerSelection = options[Math.floor(Math.random() * options.length)];
         console.log("Computer chooses " + computerSelection); //DELETE
+        return computerSelection;
     }
       
     getComputerChoice();
@@ -36,19 +37,20 @@
             
             if (playerSelection == 'rock' || playerSelection == 'paper' || playerSelection == 'scissors'){
                 validResponse = 1;
+                
             } else { //while input isnt rock/paper/scissors, prompt again
                 validResponse = 0;
                 input = prompt("Enter ONLY Rock, Paper or Scissors");
                 playerSelection = input.toLowerCase();
             }
-     
+            
         console.log("You choose " + playerSelection); //DELETE
+        return playerSelection;
         }
     }
     
     //user prompt for Rock Paper or Scissors
-    let input = prompt("Enter Rock, Paper or Scissors");
-    getplayerChoice(input);
+    getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
     
 
 
@@ -57,13 +59,12 @@
         //let i = 0;
         //let j = 0;
         
-        //take 2 parameters playerSelection and computerSelection
+        //take 2 parameters playerSelection and computerSelection and compare
         if ((computerSelection == 'rock' && playerSelection == 'scissors') || 
             (computerSelection == 'paper' && playerSelection == 'rock') ||
             (computerSelection == 'scissors' && playerSelection == 'paper')){
             //RETURN a string that declares winner
             console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
-
             return 'computerWin';
             
         } else if ((computerSelection == 'scissors' && playerSelection == 'rock') ||
@@ -71,18 +72,23 @@
                     (computerSelection == 'paper' && playerSelection == 'scissors')){
                     //RETURN a string that declares winner
                     console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
-                    
                     return 'playerWin';
+
          } else {
             console.log('It\'s a draw!');
             return 'draw';
          }
-         
+        
+        
     }
      
-    playRound(computerSelection, playerSelection);
-    console.log(playRound());
+    function game(){
+        
+        playRound(computerSelection, playerSelection);
 
+    }
+
+    game();
 
     /*
     const playerSelection = 'rock';
