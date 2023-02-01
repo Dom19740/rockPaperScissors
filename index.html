@@ -8,8 +8,10 @@
 <body>
     <script>
 
+
+
     //Call function getComputerChoice
-    function getComputerChoice(choice){
+    function getComputerChoice(){
         //write a variable with 3 options, print 1 option
         let options = ['rock', 'paper', 'scissors'];
     
@@ -20,8 +22,10 @@
       
     getComputerChoice();
         
+
+
     //Get function getplayerChoice
-    function getplayerChoice(choice){
+    function getplayerChoice(){
     
         //convet input to lower case
         playerSelection = input.toLowerCase();
@@ -43,9 +47,6 @@
             }
      
         console.log("You choose " + playerSelection); //DELETE
-      
-     
-    
         }
     }
     
@@ -53,41 +54,39 @@
     let input = prompt("Enter Rock, Paper or Scissors");
     getplayerChoice(input);
     
+
+
     //function to play 1 round
-    function playRound(computerSelection, playerSelection){
-        let computerScore = 0;
-        let playerScore = 0;
+    function playRound(){
+        //let i = 0;
+        //let j = 0;
         
         //take 2 parameters playerSelection and computerSelection
         if ((computerSelection == 'rock' && playerSelection == 'scissors') || 
             (computerSelection == 'paper' && playerSelection == 'rock') ||
             (computerSelection == 'scissors' && playerSelection == 'paper')){
             //RETURN a string that declares winner
-            return result = ('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+            console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+
+            return 'computerWin';
             
-            //add +1 to computer score
-            computerScore++;
         } else if ((computerSelection == 'scissors' && playerSelection == 'rock') ||
                     (computerSelection == 'rock' && playerSelection == 'paper') ||
                     (computerSelection == 'paper' && playerSelection == 'scissors')){
                     //RETURN a string that declares winner
-                    return result = ('You Win! ' + playerSelection + ' beats ' + computerSelection);
+                    console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
                     
-                    //add +1 to player scorre
-                    playerScore++;
+                    return 'playerWin';
          } else {
-            return result = ('It\'s a draw!');
+            console.log('It\'s a draw!');
+            return 'draw';
          }
-
+         
     }
-  
-        
-
-    
-    
+     
     playRound(computerSelection, playerSelection);
+    console.log(playRound());
 
-    console.log(result);
 
     /*
     const playerSelection = 'rock';
