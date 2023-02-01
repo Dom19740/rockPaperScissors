@@ -17,11 +17,11 @@
     
         //randomly return computerSelection: either Rock Paper or Scissors
         computerSelection = options[Math.floor(Math.random() * options.length)];
-        console.log("Computer chooses " + computerSelection); //DELETE
+        console.log("Cpu chooses " + computerSelection); //DELETE
         return computerSelection;
     }
       
-    getComputerChoice();
+    //getComputerChoice();
         
 
 
@@ -50,32 +50,30 @@
     }
     
     //user prompt for Rock Paper or Scissors
-    getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
+    //getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
     
 
 
     //function to play 1 round
     function playRound(){
-        //let i = 0;
-        //let j = 0;
         
         //take 2 parameters playerSelection and computerSelection and compare
         if ((computerSelection == 'rock' && playerSelection == 'scissors') || 
             (computerSelection == 'paper' && playerSelection == 'rock') ||
             (computerSelection == 'scissors' && playerSelection == 'paper')){
+
             //RETURN a string that declares winner
-            console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+            //console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
             return 'computerWin';
             
         } else if ((computerSelection == 'scissors' && playerSelection == 'rock') ||
                     (computerSelection == 'rock' && playerSelection == 'paper') ||
                     (computerSelection == 'paper' && playerSelection == 'scissors')){
-                    //RETURN a string that declares winner
-                    console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
+                    //console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
                     return 'playerWin';
 
          } else {
-            console.log('It\'s a draw!');
+            //console.log('It\'s a draw!');
             return 'draw';
          }
         
@@ -84,11 +82,39 @@
      
     function game(){
         
-        playRound(computerSelection, playerSelection);
+        let computerScore = 0;
+        let playerScore = 0;
+        let drawScore = 0;
 
-    }
+        for (let i = 0; i < 5; i++){
+            
+            getComputerChoice();
+            getplayerChoice(input = prompt("Enter Rock, Paper or Scissors"));
+            
+            playRound(computerSelection, playerSelection);
+
+            if (playRound() == 'computerWin'){
+                console.log('You Lose! ' + computerSelection + ' beats ' + playerSelection);
+                computerScore++;
+                
+            } else if(playRound() == 'playerWin'){
+                console.log('You Win! ' + playerSelection + ' beats ' + computerSelection);
+                playerScore++;
+                
+            } else {
+                console.log('It\'s a draw!');
+                drawScore++;
+                
+            }
+            console.log(computerScore);
+            console.log(playerScore);
+            console.log(drawScore);
+            console.log(i);
+            }
+        }
 
     game();
+    
 
     /*
     const playerSelection = 'rock';
